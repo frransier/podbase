@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Podbase POC`,
+    description: `Bring your own RSS feed. Get full website`,
+    author: `@podbase`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -15,6 +15,13 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://feed.pod.space/nourspoddelipoddochhenrik`,
+        name: `Podbase`,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
