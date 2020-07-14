@@ -1,0 +1,16 @@
+header {
+  padding: 4em;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 0;
+  background: 'red';
+}
+
+.logo {
+  width: 20%;
+  object-fit: contain;
+  margin-left: 4em;
+}

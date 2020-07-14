@@ -1,42 +1,43 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+/** @jsx jsx */
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import { jsx, Styled } from 'theme-ui'
+import styles from './header.module.css'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+const Header = ({ siteTitle, imgUrl, description }) => {
+  function createMarkup(text) {
+    return { __html: text }
+  }
+
+  return (
+    <header>
+      <div className={styles.wrapper}>
         <Link
           to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
+          sx={{
+            color: 'text',
+            textDecoration: 'none',
           }}
         >
-          {siteTitle}
+          <Styled.h1>{siteTitle}</Styled.h1>
+          <div dangerouslySetInnerHTML={createMarkup(description)}></div>{' '}
         </Link>
-      </h1>
-    </div>
-  </header>
-)
+        <img className={styles.logo} src={imgUrl} alt={`${siteTitle} logo`} />
+      </div>
+    </header>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  imgUrl: PropTypes.string,
+  description: PropTypes.string,
 }
 
 Header.defaultProps = {
   siteTitle: ``,
+  imgUrl: ``,
+  description: ``,
 }
 
 export default Header

@@ -1,8 +1,8 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import ReactAudioPlayer from "react-audio-player"
+import React from 'react'
+import { graphql } from 'gatsby'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import ReactAudioPlayer from 'react-audio-player'
 
 export const query = graphql`
   query episodeQuery($id: String!) {
