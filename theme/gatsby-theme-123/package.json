@@ -1,0 +1,17 @@
+{
+  "name": "@frransier/gatsby-theme-123",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "frransier",
+  "dependencies": {
+    "dayjs": "^1.8.29",
+    "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-source-rss-feed": "^1.2.0",
+    "react-audio-player": "^0.13.0",
+    "speakingurl": "^14.0.1",
+    "prop-types": "^15.7.2",
+    "react-icons": "^3.10.0",
+    "react-helmet": "^6.1.0"
+  }
+}

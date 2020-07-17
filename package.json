@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "name": "podbase",
+  "workspaces": [
+    "site",
+    "@frransier/gatsby-theme-123"
+  ]
+}
