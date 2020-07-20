@@ -1,11 +1,6 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+/** @jsx jsx */
+import { jsx, Styled } from "theme-ui";
 
-import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 
@@ -21,7 +16,7 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <>
+    <div sx={{ background: "white" }}>
       <Header siteTitle={data.feedPodbaseMeta.title} />
       <div
         style={{
@@ -33,7 +28,7 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer style={{ marginTop: 40 }}>© Podbase</footer>
       </div>
-    </>
+    </div>
   );
 };
 

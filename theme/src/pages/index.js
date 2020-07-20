@@ -1,10 +1,12 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import dayjs from "dayjs";
 import { FaClock, FaRegCalendarAlt } from "react-icons/fa";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import getSlug from "speakingurl";
+import Display from "../components/display";
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -43,22 +45,19 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <div
-          dangerouslySetInnerHTML={createMarkup(data.site.description)}
-        ></div>
-        <img
-          style={{ width: "20%" }}
-          src={data.site.image.url}
-          alt={data.site.image.title}
-        />
-      </div>
+      <Display
+        image={data.site.image.url}
+        description={data.site.description}
+        episode={data.episodes.edges[0].node}
+      />
+
       {data.episodes.edges.map(({ node }, i) => (
         <Link
           to={`/episodes/${getSlug(node.title, {
             truncate: 200,
             symbols: true,
           })}/`}
+          key={i}
         >
           <div
             style={{ display: "flex", alignItems: "center", marginBottom: 10 }}
