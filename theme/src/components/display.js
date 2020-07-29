@@ -5,8 +5,7 @@ import Episode from "./episode";
 
 const Display = ({ image, description, episode }) => (
   <div sx={{ variant: "variants.display" }}>
-    <About image={image} description={description} />
-    <Episode episode={episode} />
+    <Episode image={image} episode={episode} />
   </div>
 );
 

@@ -26,8 +26,8 @@ function Provider(props) {
       },
       display: {
         display: "grid",
-        gridTemplateColumns: ["1fr", "1fr 1fr"],
-        gridGap: 3,
+        // gridTemplateColumns: ["1fr", "1fr 1fr"],
+        // gridGap: 3,
       },
     },
   };

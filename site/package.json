@@ -3,10 +3,10 @@
   "name": "site",
   "version": "1.0.0",
   "dependencies": {
+    "@frransier/gatsby-theme-123": "^1.0.0",
     "gatsby": "^2.24.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "theme": "^0.1.0"
+    "react-dom": "^16.13.1"
   },
   "scripts": {
     "build": "gatsby build",
