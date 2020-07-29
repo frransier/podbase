@@ -17,7 +17,7 @@ const EpPreview = ({ episode }) => {
   `);
   const data = query.feedPodbaseMeta;
   return (
-    <div sx={{ variant: "variants.EpPreview" }}>
+    <div sx={{ variant: "variants.epPreview" }}>
       <img
         style={{ width: "12%", height: "20%", marginRight: 50 }}
         src={episode.itunes.image || data.image.url}

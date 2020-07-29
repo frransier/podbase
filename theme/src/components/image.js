@@ -17,7 +17,7 @@ const Image = ({ image }) => {
   const data = query.feedPodbaseMeta;
   return (
     <img
-      sx={{ width: "100%" }}
+      sx={{ variant: "variants.image" }}
       src={image || data.image.url}
       alt={data.image.title}
     />

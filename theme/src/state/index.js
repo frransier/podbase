@@ -17,17 +17,21 @@ function Provider(props) {
   //   const theme = data.site.siteMetadata.theme === "sketchy" ? funk : dark;
   const theme = {
     variants: {
+      layout: {},
       header: {
         background: "red",
         color: "white",
         mb: 4,
         p: 4,
       },
-      display: {
-        display: "grid",
-        // gridTemplateColumns: ["1fr", "1fr 1fr"],
-        // gridGap: 3,
-      },
+      main: {},
+      footer: {},
+      social: {},
+      platforms: {},
+      hero: {},
+      epPreview: {},
+      episode: {},
+      about: {},
     },
   };
 
