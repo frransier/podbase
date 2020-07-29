@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled } from "theme-ui";
+import { jsx } from "theme-ui";
 import { FaVolumeUp } from "react-icons/fa";
 
 const Volume = () => (

@@ -1,11 +1,10 @@
 /** @jsx jsx */
-import { jsx, Styled } from "theme-ui";
+import { jsx } from "theme-ui";
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import Play from "./play";
 import Pause from "./pause";
 import Volume from "./volume";
 import Mute from "./mute";
-// import "react-h5-audio-player/lib/styles.css";
 
 const Player = ({ src }) => (
   <AudioPlayer
@@ -140,7 +139,7 @@ const Player = ({ src }) => (
     customAdditionalControls={[]}
     customProgressBarSection={[RHAP_UI.PROGRESS_BAR, RHAP_UI.VOLUME]}
     customVolumeControls={[]}
-    autoPlay
+    autoPlay={false}
     src={src}
     customIcons={{
       play: <Play />,

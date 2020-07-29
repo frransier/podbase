@@ -4,6 +4,8 @@ module.exports = ({ rssFeed, theme }) => ({
     description: `Bring your own RSS feed. Get full website`,
     author: `@podbase`,
     theme: theme,
+    platforms: ["itunes", "spotify", "google"],
+    social: ["facebook", "instagram", "twitter"],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -12,11 +14,11 @@ module.exports = ({ rssFeed, theme }) => ({
       options: {
         url: rssFeed,
         name: `Podbase`,
-        parserOption: {
-          customFields: {
-            item: [["content", "bajs:content"]],
-          },
-        },
+        // parserOption: {
+        //   customFields: {
+        //     item: [["content", "bajs:content"]],
+        //   },
+        // },
       },
     },
   ],
