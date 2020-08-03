@@ -4,16 +4,16 @@ import { useStaticQuery } from "gatsby";
 import { graphql } from "gatsby";
 
 function Provider(props) {
-  const data = useStaticQuery(graphql`
-    query ThemeQuery {
-      site {
-        siteMetadata {
-          theme
-        }
-      }
-    }
-  `);
-  console.log(data.site.siteMetadata.theme);
+  // const data = useStaticQuery(graphql`
+  //   query ThemeQuery {
+  //     site {
+  //       siteMetadata {
+  //         theme
+  //       }
+  //     }
+  //   }
+  // `);
+  // console.log(data.site.siteMetadata.theme);
   //   const theme = data.site.siteMetadata.theme === "sketchy" ? funk : dark;
   const theme = {
     colors: {

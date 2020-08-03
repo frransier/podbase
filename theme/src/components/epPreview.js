@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import getSlug from "speakingurl";
-import { FaClock, FaRegCalendarAlt } from "react-icons/fa";
-import { useStaticQuery, Link } from "gatsby";
+import { FaClock } from "react-icons/fa";
+import { useStaticQuery, Link, graphql } from "gatsby";
 
 const EpPreview = ({ episode }) => {
   const query = useStaticQuery(graphql`
