@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import getSlug from "speakingurl";
 import { FaClock, FaRegCalendarAlt } from "react-icons/fa";
 import { useStaticQuery, Link } from "gatsby";
@@ -19,41 +19,40 @@ const EpPreview = ({ episode }) => {
   return (
     <div sx={{ variant: "variants.epPreview" }}>
       <img
-        style={{ width: "12%", height: "20%", marginRight: 50 }}
+        sx={{ display: ["none", "flex"], width: "100%" }}
         src={episode.itunes.image || data.image.url}
         alt={episode.title}
       />
 
-      <div>
-        <Link
-          to={`/episodes/${getSlug(episode.title, {
-            truncate: 200,
-            symbols: true,
-          })}/`}
-        >
-          <h3>{episode.title}</h3>
-        </Link>
-        <p>{episode.itunes.subtitle}</p>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <p
-            style={{
-              marginRight: 40,
+      <div sx={{ mx: 3 }}>
+        <div sx={{ display: ["auto", "flex"], alignItems: "center", mt: 3 }}>
+          <Link
+            to={`/episodes/${getSlug(episode.title, {
+              truncate: 200,
+              symbols: true,
+            })}/`}
+            sx={{ color: "text" }}
+          >
+            <Styled.h3 sx={{ m: 0 }}>{episode.title}</Styled.h3>
+          </Link>
+          <div sx={{ mx: "auto" }} />
+          <Styled.p sx={{ textTransform: "uppercase", fontSize: 1, m: 0 }}>
+            {episode.isoDate}
+          </Styled.p>
+        </div>
+        <Styled.p
+          dangerouslySetInnerHTML={{ __html: episode.itunes.subtitle }}
+        />
+
+        <div sx={{ display: "flex", alignItems: "center" }}>
+          <Styled.p
+            sx={{
               display: "flex",
               alignItems: "center",
-              textTransform: "uppercase",
             }}
           >
-            <FaRegCalendarAlt style={{ marginRight: 10 }} /> {episode.isoDate}
-          </p>
-          <p
-            style={{
-              marginRight: 40,
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <FaClock style={{ marginRight: 10 }} /> {episode.itunes.duration}
-          </p>
+            <FaClock sx={{ mr: 2 }} /> {episode.itunes.duration}
+          </Styled.p>
         </div>
       </div>
     </div>

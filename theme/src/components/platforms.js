@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { FaSpotify, FaPodcast, FaGooglePlay } from "react-icons/fa";
 
@@ -16,13 +16,21 @@ const Platforms = () => {
   const data = query.site.siteMetadata;
 
   return (
-    <div sx={{ variant: "variants.platforms" }}>
-      {data.platforms.map((platform, i) => {
-        if (platform.includes("itunes")) return <FaPodcast key={i} />;
-        if (platform.includes("google")) return <FaGooglePlay key={i} />;
-        if (platform.includes("spotify")) return <FaSpotify key={i} />;
-        return null;
-      })}
+    <div>
+      <Styled.h3 sx={{ textAlign: "center", mt: 2, mb: 3 }}>
+        Lyssna i din app
+      </Styled.h3>
+      <div sx={{ variant: "variants.platforms" }}>
+        {data.platforms.map((platform, i) => {
+          if (platform.includes("itunes"))
+            return <FaPodcast sx={{ mx: 3 }} key={i} />;
+          if (platform.includes("google"))
+            return <FaGooglePlay sx={{ mx: 3 }} key={i} />;
+          if (platform.includes("spotify"))
+            return <FaSpotify sx={{ mx: 3 }} key={i} />;
+          return null;
+        })}
+      </div>
     </div>
   );
 };

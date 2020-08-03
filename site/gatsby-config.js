@@ -3,7 +3,7 @@ module.exports = {
     {
       resolve: `@frransier/gatsby-theme-123`,
       options: {
-        rssFeed: "https://rss.acast.com/wahlgrenwistam",
+        rssFeed: "https://rss.acast.com/isabella-soker-sheila",
         theme: "sketchy",
       },
     },

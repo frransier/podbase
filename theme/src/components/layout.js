@@ -16,10 +16,12 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <div sx={{ variant: "variants.layout" }}>
+    <div sx={{ bg: "background" }}>
       <Header siteTitle={data.feedPodbaseMeta.title} />
-      <main sx={{ variant: "variants.main" }}>{children}</main>
-      <footer sx={{ variant: "variants.footer" }}>© Podbase</footer>
+      <div sx={{ variant: "variants.layout" }}>
+        <main sx={{ variant: "variants.main" }}>{children}</main>
+        <footer sx={{ variant: "variants.footer" }}>© Podbase</footer>
+      </div>
     </div>
   );
 };
