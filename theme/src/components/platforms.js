@@ -18,7 +18,7 @@ const Platforms = () => {
   return (
     <div>
       <Styled.h3 sx={{ textAlign: "center", mt: 2, mb: 3 }}>
-        Lyssna i din app
+        Lyssna i appen
       </Styled.h3>
       <div sx={{ variant: "variants.platforms" }}>
         {data.platforms.map((platform, i) => {

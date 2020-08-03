@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Hero from "../components/hero";
-import Social from "../components/social";
 import About from "../components/about";
 import EpPreview from "../components/epPreview";
 
@@ -15,7 +14,7 @@ const IndexPage = ({ data }) => {
 
       <Hero episode={data.episodes.edges[0].node} image={data.site.image.url} />
       <About />
-      <Social />
+
       {data.episodes.edges.map(({ node }, i) => {
         if (i > 0) return <EpPreview episode={node} key={i} />;
         return null;

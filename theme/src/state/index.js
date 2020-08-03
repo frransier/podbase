@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "theme-ui";
-import { useStaticQuery } from "gatsby";
-import { graphql } from "gatsby";
+// import { useStaticQuery } from "gatsby";
+// import { graphql } from "gatsby";
 
 function Provider(props) {
   // const data = useStaticQuery(graphql`
