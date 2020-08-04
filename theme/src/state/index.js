@@ -1,19 +1,19 @@
 import React from "react";
 import { ThemeProvider } from "theme-ui";
-// import { useStaticQuery } from "gatsby";
-// import { graphql } from "gatsby";
+import { useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 
 function Provider(props) {
-  // const data = useStaticQuery(graphql`
-  //   query ThemeQuery {
-  //     site {
-  //       siteMetadata {
-  //         theme
-  //       }
-  //     }
-  //   }
-  // `);
-  // console.log(data.site.siteMetadata.theme);
+  const data = useStaticQuery(graphql`
+    query ThemeQuery {
+      site {
+        siteMetadata {
+          theme
+        }
+      }
+    }
+  `);
+  console.log(data.site.siteMetadata.theme);
   //   const theme = data.site.siteMetadata.theme === "sketchy" ? funk : dark;
   const theme = {
     colors: {
