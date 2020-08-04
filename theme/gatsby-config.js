@@ -1,12 +1,12 @@
-module.exports = ({ rssFeed, fonts, colors }) => ({
+module.exports = ({ rssFeed, fonts, colors, platforms, social }) => ({
   siteMetadata: {
     title: `Podbase POC`,
     description: `Bring your own RSS feed. Get full website`,
     author: `@podbase`,
     fonts: fonts,
     colors: colors,
-    platforms: ["itunes", "spotify", "google"],
-    social: ["facebook", "instagram", "twitter"],
+    platforms: platforms,
+    social: social,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
