@@ -1,7 +1,9 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import instagram from "../images/instagram.svg";
+import facebook from "../images/facebook.svg";
+import twitter from "../images/twitter.svg";
 
 const Social = () => {
   const query = useStaticQuery(graphql`
@@ -21,11 +23,32 @@ const Social = () => {
       <div sx={{ variant: "variants.social" }}>
         {data.social.map((socialMedia, i) => {
           if (socialMedia.includes("facebook"))
-            return <FaFacebook sx={{ mx: 3 }} key={i} />;
+            return (
+              <img
+                src={facebook}
+                sx={{ mx: 3, height: 30, width: 30 }}
+                key={i}
+                alt="Facebook"
+              />
+            );
           if (socialMedia.includes("instagram"))
-            return <FaInstagram sx={{ mx: 3 }} key={i} />;
+            return (
+              <img
+                src={instagram}
+                sx={{ mx: 3, height: 30, width: 30 }}
+                key={i}
+                alt="Instagram"
+              />
+            );
           if (socialMedia.includes("twitter"))
-            return <FaTwitter sx={{ mx: 3 }} key={i} />;
+            return (
+              <img
+                src={twitter}
+                sx={{ mx: 3, height: 30, width: 30 }}
+                key={i}
+                alt="Twitter"
+              />
+            );
           return null;
         })}
       </div>

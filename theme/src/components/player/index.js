@@ -17,9 +17,7 @@ const Player = ({ src }) => (
           lineHeight: 1,
           width: "100%",
           padding: "10px 15px",
-          bg: "blue",
         },
-
         ".rhap_progress-section": {
           display: "flex",
           flex: "3 1 auto",

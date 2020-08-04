@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import About from "../components/about";
-import Social from "../components/social";
 import Hero from "../components/hero";
 import EpPreview from "../components/epPreview";
 
@@ -51,9 +50,10 @@ const EpisodeTemplate = ({ data }) => {
       <SEO title={episode.title} />
       <Hero episode={episode} />
       <About />
-      <Social />
       {data.episodes.edges.map(({ node }, i) => {
-        return <EpPreview episode={node} key={i} />;
+        if (node.title !== episode.title)
+          return <EpPreview episode={node} key={i} />;
+        return null;
       })}
     </Layout>
   );

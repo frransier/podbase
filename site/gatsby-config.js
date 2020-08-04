@@ -4,7 +4,9 @@ module.exports = {
       resolve: `@frransier/gatsby-theme-123`,
       options: {
         rssFeed: "https://rss.acast.com/isabella-soker-sheila",
-        theme: "sketchy",
+        fonts: "Poppins",
+        colors: "Winter",
+        // variants: 'Something'
       },
     },
   ],

@@ -1,9 +1,10 @@
-module.exports = ({ rssFeed, theme }) => ({
+module.exports = ({ rssFeed, fonts, colors }) => ({
   siteMetadata: {
     title: `Podbase POC`,
     description: `Bring your own RSS feed. Get full website`,
     author: `@podbase`,
-    theme: theme,
+    fonts: fonts,
+    colors: colors,
     platforms: ["itunes", "spotify", "google"],
     social: ["facebook", "instagram", "twitter"],
   },

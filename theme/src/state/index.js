@@ -8,29 +8,20 @@ function Provider(props) {
     query ThemeQuery {
       site {
         siteMetadata {
-          theme
+          fonts
+          colors
         }
       }
     }
   `);
-  console.log(data.site.siteMetadata.theme);
-  //   const theme = data.site.siteMetadata.theme === "sketchy" ? funk : dark;
+
+  const fonts = fontsPicker(data.site.siteMetadata.fonts);
+  const colors = colorsPicker(data.site.siteMetadata.colors);
+  //  const variants = variantsPicker(data.site.siteMetadata.variants);
+
   const theme = {
-    colors: {
-      text: "hsl(10, 20%, 20%)",
-      background: "hsl(10, 10%, 98%)",
-      primary: "hsl(10, 80%, 50%)",
-      secondary: "hsl(10, 60%, 50%)",
-      highlight: "hsl(10, 40%, 90%)",
-      purple: "hsl(250, 60%, 30%)",
-      muted: "hsl(10, 20%, 94%)",
-      gray: "hsl(10, 20%, 50%)",
-    },
-    fonts: {
-      body: "Poppins, sans-serif",
-      heading: "Poppins, sans-serif",
-      monospace: "Menlo, monospace",
-    },
+    fonts: fonts,
+    colors: colors,
     variants: {
       layout: {
         bg: "background",
@@ -121,3 +112,67 @@ function Provider(props) {
 }
 
 export { Provider };
+
+function fontsPicker(font) {
+  switch (font) {
+    case "Poppins":
+      const poppins = {
+        body: "Poppins, sans-serif",
+        heading: "Poppins, sans-serif",
+      };
+      return poppins;
+    case "Roboto":
+      const roboto = {
+        body: "Roboto",
+        heading: "Roboto Slab",
+      };
+      return roboto;
+    case "Rosario":
+      const rosario = {
+        body: "Crimson Text",
+        heading: "Rosario",
+      };
+      return rosario;
+    default:
+      break;
+  }
+}
+
+function colorsPicker(colors) {
+  switch (colors) {
+    case "Summer":
+      const summer = {
+        text: "#4A4737",
+        background: "#FBF9F0",
+        primary: "#00F3EC",
+        muted: "#AFAC99",
+      };
+      return summer;
+    case "Autumn":
+      const autumn = {
+        text: "#54433A",
+        background: "#FFF5E9",
+        primary: "#F67F31",
+        muted: "#BCA79C",
+      };
+      return autumn;
+    case "Winter":
+      const winter = {
+        text: "#3E4756",
+        background: "#F0FAFF",
+        primary: "#319CF6",
+        muted: "#A2ACBD",
+      };
+      return winter;
+    case "Spring":
+      const spring = {
+        text: "#394B41",
+        background: "#EEFDF4",
+        primary: "#31F6A6",
+        muted: "#9CB0A4",
+      };
+      return spring;
+    default:
+      break;
+  }
+}

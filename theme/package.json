@@ -17,6 +17,10 @@
     "react-soundplayer": "^1.0.5",
     "speakingurl": "^14.0.1",
     "theme-ui": "^0.3.1",
-    "typeface-poppins": "^0.0.72"
+    "typeface-crimson-text": "^0.0.72",
+    "typeface-poppins": "^0.0.72",
+    "typeface-roboto": "^0.0.75",
+    "typeface-roboto-slab": "^1.1.4",
+    "typeface-rosario": "^1.1.4"
   }
 }

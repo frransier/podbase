@@ -1,7 +1,9 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import { FaSpotify, FaPodcast, FaGooglePlay } from "react-icons/fa";
+import apple from "../images/apple.svg";
+import google from "../images/google.svg";
+import spotify from "../images/spotify.svg";
 
 const Platforms = () => {
   const query = useStaticQuery(graphql`
@@ -23,11 +25,32 @@ const Platforms = () => {
       <div sx={{ variant: "variants.platforms" }}>
         {data.platforms.map((platform, i) => {
           if (platform.includes("itunes"))
-            return <FaPodcast sx={{ mx: 3 }} key={i} />;
+            return (
+              <img
+                src={apple}
+                sx={{ mx: 3, height: 30, width: 30 }}
+                key={i}
+                alt="Apple Podcasts"
+              />
+            );
           if (platform.includes("google"))
-            return <FaGooglePlay sx={{ mx: 3 }} key={i} />;
+            return (
+              <img
+                src={spotify}
+                sx={{ mx: 3, height: 30, width: 30 }}
+                key={i}
+                alt="Spotify"
+              />
+            );
           if (platform.includes("spotify"))
-            return <FaSpotify sx={{ mx: 3 }} key={i} />;
+            return (
+              <img
+                src={google}
+                sx={{ mx: 3, height: 30, width: 30 }}
+                key={i}
+                alt="Google Play"
+              />
+            );
           return null;
         })}
       </div>
