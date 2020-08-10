@@ -1,25 +1,25 @@
-module.exports = ({ rssFeed, fonts, colors, platforms, social }) => ({
+module.exports = ({ rssFeed, theme, platforms, social, sanityId }) => ({
   siteMetadata: {
     title: `Podbase POC`,
     description: `Bring your own RSS feed. Get full website`,
     author: `@podbase`,
-    fonts: fonts,
-    colors: colors,
+    theme: theme,
     platforms: platforms,
     social: social,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-source-rss-feed`,
+      resolve: `@frransier/podbase-source`,
       options: {
         url: rssFeed,
-        name: `Podbase`,
-        // parserOption: {
-        //   customFields: {
-        //     item: [["content", "bajs:content"]],
-        //   },
-        // },
+      },
+    },
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: sanityId || "8jznxiqg",
+        dataset: "production",
       },
     },
   ],

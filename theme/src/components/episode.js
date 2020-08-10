@@ -1,17 +1,28 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
+import getSlug from "speakingurl";
+import { Box, Link } from "theme-ui";
 
-const Episode = ({ episode }) => (
-  <div sx={{ variant: "variants.episode" }}>
-    <div sx={{ display: ["auto", "flex"], alignItems: "center" }}>
-      <Styled.h3>{episode.title}</Styled.h3>
-      <div sx={{ mx: "auto" }} />
-      <Styled.p sx={{ textTransform: "uppercase", fontSize: 1 }}>
-        {episode.isoDate}
-      </Styled.p>
-    </div>
-    <Styled.p dangerouslySetInnerHTML={{ __html: episode.itunes.subtitle }} />
-  </div>
-);
+const Episode = ({ episode, showPlayer }) => {
+  return (
+    <Box>
+      <Link
+        href={`/episodes/${getSlug(episode.title, {
+          truncate: 200,
+          symbols: true,
+        })}/`}
+      >
+        <Styled.h3>{episode.title}</Styled.h3>
+      </Link>
+      <Styled.p>{episode.date}</Styled.p>
+      {showPlayer && (
+        <audio controls src={episode.url} sx={{ width: "100%" }}>
+          no good
+          <track />
+        </audio>
+      )}
+    </Box>
+  );
+};
 
 export default Episode;

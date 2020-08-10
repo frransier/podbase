@@ -1,62 +1,85 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import About from "../components/about";
-import Hero from "../components/hero";
-import EpPreview from "../components/epPreview";
+import Episode from "../components/episode";
+import Platforms from "../components/platforms";
+import Social from "../components/social";
+import { Box, Text, Image, Card, Grid } from "theme-ui";
+import { useGlobalState } from "../state/globalState";
+import { useEffect } from "react";
+
+const EpisodeTemplate = ({ data }) => {
+  const activeEpisode = data.activeEpisode;
+  const [, setActiveEpisode] = useGlobalState("activeEpisode");
+
+  useEffect(() => {
+    setActiveEpisode({
+      src: activeEpisode.url,
+      title: activeEpisode.title,
+      slug: "",
+    });
+  }, [activeEpisode.url, activeEpisode.title, setActiveEpisode]);
+
+  return (
+    <Layout>
+      <SEO title={activeEpisode.title} />
+      <Grid columns={[1, 2]} sx={{ mt: 5, mb: 3 }}>
+        <Image
+          src={data.meta.image.url}
+          sx={{ pr: [0, 4], flex: ["0 0 100%", "0 0 50%"] }}
+        />
+        <Text dangerouslySetInnerHTML={{ __html: data.meta.description }} />
+      </Grid>
+      <Grid columns={[1, 2]} sx={{ mb: 5 }}>
+        <Platforms />
+        <Social />
+      </Grid>
+      <Box>
+        {data.episodes.edges.map((episode, i) => (
+          <Card key={i}>
+            <Episode episode={episode.node} key={i} />
+          </Card>
+        ))}
+      </Box>
+    </Layout>
+  );
+};
+
+export default EpisodeTemplate;
 
 export const query = graphql`
   query episodeQuery($id: String!) {
-    episode: feedPodbase(id: { eq: $id }) {
-      title
-      itunes {
-        subtitle
-        duration
-      }
-      enclosure {
+    meta: podcast {
+      description
+      image {
         url
+        title
       }
-      isoDate(formatString: "dddd Do MMMM", locale: "sv")
-      content
     }
-    episodes: allFeedPodbase(
-      sort: { fields: isoDate, order: DESC }
-      limit: 10
-    ) {
+    activeEpisode: episodes(id: { eq: $id }) {
+      title
+      url
+      snippet
+      description
+      image
+      duration
+      date(formatString: "dddd Do MMMM", locale: "sv")
+    }
+    episodes: allEpisodes(sort: { fields: date, order: DESC }, limit: 10) {
       edges {
         node {
           title
-          itunes {
-            subtitle
-            duration
-          }
-          enclosure {
-            url
-          }
-          isoDate(formatString: "dddd Do MMMM", locale: "sv")
-          contentSnippet
+          url
+          snippet
+          description
+          image
+          duration
+          date(formatString: "dddd Do MMMM", locale: "sv")
         }
       }
     }
   }
 `;
 
-const EpisodeTemplate = ({ data }) => {
-  const episode = data.episode;
-
-  return (
-    <Layout>
-      <SEO title={episode.title} />
-      <Hero episode={episode} />
-      <About />
-      {data.episodes.edges.map(({ node }, i) => {
-        if (node.title !== episode.title)
-          return <EpPreview episode={node} key={i} />;
-        return null;
-      })}
-    </Layout>
-  );
-};
-
-export default EpisodeTemplate;

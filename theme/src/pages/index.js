@@ -3,22 +3,46 @@ import { jsx } from "theme-ui";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Hero from "../components/hero";
-import About from "../components/about";
-import EpPreview from "../components/epPreview";
+import Episode from "../components/episode";
+import Platforms from "../components/platforms";
+import Social from "../components/social";
+import { Box, Text, Image, Card, Grid } from "theme-ui";
+import { useGlobalState } from "../state/globalState";
+import { useEffect } from "react";
 
 const IndexPage = ({ data }) => {
+  const [, setActiveEpisode] = useGlobalState("activeEpisode");
+  const lastestEpisode = data.episodes.edges[0].node;
+
+  useEffect(() => {
+    setActiveEpisode({
+      src: lastestEpisode.url,
+      title: lastestEpisode.title,
+      slug: "",
+    });
+  }, [lastestEpisode.url, lastestEpisode.title, setActiveEpisode]);
+
   return (
     <Layout>
       <SEO title="Home" />
-
-      <Hero episode={data.episodes.edges[0].node} image={data.site.image.url} />
-      <About />
-
-      {data.episodes.edges.map(({ node }, i) => {
-        if (i > 0) return <EpPreview episode={node} key={i} />;
-        return null;
-      })}
+      <Grid columns={[1, 2]} sx={{ mt: 5, mb: 3 }}>
+        <Image
+          src={data.meta.image.url}
+          sx={{ pr: [0, 4], flex: ["0 0 100%", "0 0 50%"] }}
+        />
+        <Text dangerouslySetInnerHTML={{ __html: data.meta.description }} />
+      </Grid>
+      <Grid columns={[1, 2]} sx={{ mb: 5 }}>
+        <Platforms />
+        <Social />
+      </Grid>
+      <Box>
+        {data.episodes.edges.map((episode, i) => (
+          <Card key={i}>
+            <Episode episode={episode.node} key={i} />
+          </Card>
+        ))}
+      </Box>
     </Layout>
   );
 };
@@ -27,29 +51,21 @@ export default IndexPage;
 
 export const query = graphql`
   query IndexPageQuery {
-    site: feedPodbaseMeta {
+    meta: podcast {
       description
       image {
         url
         title
       }
     }
-    episodes: allFeedPodbase(
-      sort: { fields: isoDate, order: DESC }
-      limit: 10
-    ) {
+    episodes: allEpisodes(sort: { fields: date, order: DESC }, limit: 10) {
       edges {
         node {
           title
-          itunes {
-            subtitle
-            duration
-          }
-          enclosure {
-            url
-          }
-          isoDate(formatString: "dddd Do MMMM", locale: "sv")
-          contentSnippet
+          snippet
+          url
+          date(formatString: "dddd Do MMMM", locale: "sv")
+          description
         }
       }
     }
