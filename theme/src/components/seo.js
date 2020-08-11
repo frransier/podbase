@@ -15,6 +15,7 @@ function SEO({ description, meta, title, episode }) {
     graphql`
       query {
         podcast {
+          description
           language
           image {
             title
@@ -52,16 +53,20 @@ function SEO({ description, meta, title, episode }) {
           content: `video`,
         },
         {
+          property: `og:url`,
+          content: `https://podbase.netlify.app`,
+        },
+        {
           property: `og:image`,
           content: podcast.image.url,
         },
         {
           property: `og:video`,
-          content: `https://podbase.netlify.app/videoEmbed/`,
+          content: `https://podbase.netlify.app/videoPlayer/`,
         },
         {
           property: `og:video:secure_url`,
-          content: `https://podbase.netlify.app/videoEmbed/`,
+          content: `https://podbase.netlify.app/videoPlayer/`,
         },
         {
           property: `og:video:type`,
