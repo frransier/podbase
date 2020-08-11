@@ -3,7 +3,7 @@
   "name": "site",
   "version": "1.0.0",
   "dependencies": {
-    "@frransier/gatsby-theme-123": "^1.2.16",
+    "@frransier/gatsby-theme-123": "^1.2.17",
     "gatsby": "^2.24.24",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
