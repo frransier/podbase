@@ -38,7 +38,7 @@ function SEO({ description, meta, title, episode }) {
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: metaDescription.replace(/(<([^>]+)>)/gi, ""),
         },
         {
           property: `og:title`,
@@ -46,11 +46,11 @@ function SEO({ description, meta, title, episode }) {
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: metaDescription.replace(/(<([^>]+)>)/gi, ""),
         },
         {
           property: `og:type`,
-          content: `video`,
+          content: `website`,
         },
         {
           property: `og:url`,
@@ -59,26 +59,6 @@ function SEO({ description, meta, title, episode }) {
         {
           property: `og:image`,
           content: podcast.image.url,
-        },
-        {
-          property: `og:video`,
-          content: `https://podbase.netlify.app/videoPlayer/`,
-        },
-        {
-          property: `og:video:secure_url`,
-          content: `https://podbase.netlify.app/videoPlayer/`,
-        },
-        {
-          property: `og:video:type`,
-          content: `video/mp4`,
-        },
-        {
-          property: `og:video:width`,
-          content: `262px`,
-        },
-        {
-          property: `og:video:height`,
-          content: `262px`,
         },
         {
           name: `twitter:card`,
@@ -100,10 +80,6 @@ function SEO({ description, meta, title, episode }) {
           name: `twitter:player:height`,
           content: `262px`,
         },
-        // {
-        //   name: `twitter:creator`,
-        //   content: siteMetadata.author,
-        // },
         {
           name: `twitter:image`,
           content: podcast.image.url,
