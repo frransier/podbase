@@ -24,7 +24,7 @@ const EpisodeTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={activeEpisode.title} />
+      <SEO title={activeEpisode.title} episode={true} />
       <Grid columns={[1, 2]} sx={{ mt: 5, mb: 3 }}>
         <Image
           src={data.meta.image.url}
@@ -82,4 +82,3 @@ export const query = graphql`
     }
   }
 `;
-

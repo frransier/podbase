@@ -1102,30 +1102,6 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@frransier/gatsby-theme-123@latest":
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/@frransier/gatsby-theme-123/-/gatsby-theme-123-1.2.6.tgz#80ae26533f410b3a8807943844f821557bcb1581"
-  integrity sha512-fa6xLTEaBWM8QWvg1rIEyMyabcEMEHdumACDmUzFeEyz8HRdu2+eVT59MumIIp5qbu+HVbkLlBt09ojnedEbNQ==
-  dependencies:
-    "@frransier/podbase-source" "^1.0.1"
-    "@theme-ui/presets" "^0.3.0"
-    dayjs "^1.8.29"
-    gatsby-plugin-react-helmet "^3.3.10"
-    prop-types "^15.7.2"
-    react-audio-player "^0.13.0"
-    react-h5-audio-player "^3.2.0"
-    react-helmet "^6.1.0"
-    react-hooks-global-state "^1.0.1"
-    react-icons "^3.10.0"
-    react-soundplayer "^1.0.5"
-    speakingurl "^14.0.1"
-    theme-ui "^0.3.1"
-    typeface-crimson-text "^0.0.72"
-    typeface-poppins "^0.0.72"
-    typeface-roboto "^0.0.75"
-    typeface-roboto-slab "^1.1.4"
-    typeface-rosario "^1.1.4"
-
 "@frransier/podbase-source@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@frransier/podbase-source/-/podbase-source-1.0.1.tgz#b17166f4a305917b1b20cee8abfc3caba11c1d7e"
