@@ -55,6 +55,14 @@ function SEO({ description, meta, title, episode }) {
           name: `twitter:card`,
           content: episode ? `player` : `summary`,
         },
+        {
+          name: `twitter:player`,
+          content: `https://podbase.netlify.app/src/`,
+        },
+        {
+          name: `twitter:player:stream`,
+          content: `https://sphinx.acast.com/isabella-soker-sheila/host/media.mp3`,
+        },
         // {
         //   name: `twitter:creator`,
         //   content: siteMetadata.author,

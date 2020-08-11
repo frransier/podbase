@@ -1,4 +1,9 @@
 const getSlug = require("speakingurl");
+const express = require("express");
+
+exports.onCreateDevServer = ({ app }) => {
+  app.use(express.static("public"));
+};
 
 async function createProjectPages(graphql, actions) {
   const { createPage } = actions;
