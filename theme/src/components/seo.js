@@ -52,6 +52,14 @@ function SEO({ description, meta, title, episode }) {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: podcast.image.url,
+        },
+        {
+          property: `og:audio`,
+          content: `https://sphinx.acast.com/isabella-soker-sheila/host/media.mp3`,
+        },
+        {
           name: `twitter:card`,
           content: episode ? `player` : `summary`,
         },

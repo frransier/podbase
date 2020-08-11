@@ -6,7 +6,7 @@ import SEO from "../components/seo";
 import Episode from "../components/episode";
 import Platforms from "../components/platforms";
 import Social from "../components/social";
-import { Box, Text, Image, Card, Grid } from "theme-ui";
+import { Box, Text, Image, Card, Grid, Embed } from "theme-ui";
 import { useGlobalState } from "../state/globalState";
 import { useEffect } from "react";
 
@@ -25,9 +25,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-
-      <audio controls />
-
+      <Embed src={lastestEpisode.url} />
       <Grid columns={[1, 2]} sx={{ mt: 5, mb: 3 }}>
         <Image
           src={data.meta.image.url}
