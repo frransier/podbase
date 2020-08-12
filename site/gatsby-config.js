@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
     {
-      resolve: `@podsite/base-theme`,
+      resolve: `@frransier/gatsby-theme-123`,
       options: {
         rssFeed: "https://rss.acast.com/isabella-soker-sheila",
         theme: JSON.stringify({
