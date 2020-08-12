@@ -25,7 +25,6 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Embed src={lastestEpisode.url} />
       <Grid columns={[1, 2]} sx={{ mt: 5, mb: 3 }}>
         <Image
           src={data.meta.image.url}

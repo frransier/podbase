@@ -1,4 +1,4 @@
-module.exports = ({ rssFeed, theme, platforms, social, sanityId }) => ({
+module.exports = ({ rssFeed, theme, platforms, social, sanityId, url }) => ({
   siteMetadata: {
     title: `Podbase POC`,
     description: `Bring your own RSS feed. Get full website`,
@@ -6,6 +6,7 @@ module.exports = ({ rssFeed, theme, platforms, social, sanityId }) => ({
     theme: theme,
     platforms: platforms,
     social: social,
+    url: url,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -21,6 +21,7 @@ module.exports = {
         platforms: ["itunes", "spotify", "google"],
         social: ["facebook", "instagram", "twitter"],
         // sanityId: "9dhni4ie",
+        url: "https://podbase.netlify.app",
       },
     },
   ],

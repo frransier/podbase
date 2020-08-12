@@ -57,6 +57,28 @@ async function createProjectPages(graphql, actions) {
       context: { id },
     });
   });
+  episodes.forEach((edge) => {
+    const id = edge.node.id;
+    const slug = getSlug(edge.node.title, { truncate: 200, symbols: true });
+    const path = `/episodes/${slug}/player`;
+
+    createPage({
+      path,
+      component: require.resolve("./src/templates/player.js"),
+      context: { id },
+    });
+  });
+  episodes.forEach((edge) => {
+    const id = edge.node.id;
+    const slug = getSlug(edge.node.title, { truncate: 200, symbols: true });
+    const path = `/episodes/${slug}/embed`;
+
+    createPage({
+      path,
+      component: require.resolve("./src/templates/embed.js"),
+      context: { id },
+    });
+  });
 
   if (posts.length > 0) {
     posts.forEach((edge) => {

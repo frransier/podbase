@@ -10,21 +10,27 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function SEO({ description, meta, title, episode }) {
-  const { podcast } = useStaticQuery(
-    graphql`
-      query {
-        podcast {
-          description
-          language
-          image {
-            title
-            url
-          }
+function SEO({ description, meta, title, episode, image, stream }) {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          url
         }
       }
-    `
-  );
+      podcast {
+        title
+        description
+        language
+        image {
+          title
+          url
+        }
+      }
+    }
+  `);
+  const podcast = data.podcast;
+  const site = data.site.siteMetadata;
 
   const metaDescription = description || podcast.description;
 
@@ -54,11 +60,11 @@ function SEO({ description, meta, title, episode }) {
         },
         {
           property: `og:url`,
-          content: `https://podbase.netlify.app`,
+          content: site.url,
         },
         {
           property: `og:image`,
-          content: podcast.image.url,
+          content: image || podcast.image.url,
         },
         {
           name: `twitter:card`,
@@ -66,11 +72,11 @@ function SEO({ description, meta, title, episode }) {
         },
         {
           name: `twitter:player`,
-          content: `https://podbase.netlify.app/player/`,
+          content: episode,
         },
         {
           name: `twitter:player:stream`,
-          content: `https://sphinx.acast.com/isabella-soker-sheila/host/media.mp3`,
+          content: stream,
         },
         {
           name: `twitter:player:width`,

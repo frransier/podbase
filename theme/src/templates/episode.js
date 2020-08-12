@@ -9,11 +9,16 @@ import Social from "../components/social";
 import { Box, Text, Image, Card, Grid } from "theme-ui";
 import { useGlobalState } from "../state/globalState";
 import { useEffect } from "react";
+import getSlug from "speakingurl";
 
 const EpisodeTemplate = ({ data }) => {
   const activeEpisode = data.activeEpisode;
   const [, setActiveEpisode] = useGlobalState("activeEpisode");
-
+  const slug = getSlug(activeEpisode.title, {
+    truncate: 200,
+    symbols: true,
+  });
+  const episode = `${data.site.siteMetadata.url}/${slug}/player/`;
   useEffect(() => {
     setActiveEpisode({
       src: activeEpisode.url,
@@ -24,7 +29,13 @@ const EpisodeTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={activeEpisode.title} episode={true} />
+      <SEO
+        title={activeEpisode.title}
+        description={activeEpisode.snippet}
+        image={activeEpisode.image || data.meta.image.url}
+        episode={episode}
+        stream={activeEpisode.url}
+      />
       <Grid columns={[1, 2]} sx={{ mt: 5, mb: 3 }}>
         <Image
           src={data.meta.image.url}
@@ -51,6 +62,11 @@ export default EpisodeTemplate;
 
 export const query = graphql`
   query episodeQuery($id: String!) {
+    site {
+      siteMetadata {
+        url
+      }
+    }
     meta: podcast {
       description
       image {
