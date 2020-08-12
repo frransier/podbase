@@ -8,7 +8,8 @@ const PlayerTemplate = ({ data }) => {
     truncate: 200,
     symbols: true,
   });
-  const src = `${data.site.siteMetadata.url}/${slug}/embed/`;
+  const src = `${data.site.siteMetadata.url}/episodes/${slug}/embed/`;
+  // const src = `http://localhost:8000/episodes/${slug}/embed/`;
   console.log(src);
   return <iframe src={src} />;
 };

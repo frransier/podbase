@@ -60,7 +60,7 @@ async function createProjectPages(graphql, actions) {
   episodes.forEach((edge) => {
     const id = edge.node.id;
     const slug = getSlug(edge.node.title, { truncate: 200, symbols: true });
-    const path = `/episodes/${slug}/player`;
+    const path = `/episodes/${slug}/player/`;
 
     createPage({
       path,
@@ -71,7 +71,7 @@ async function createProjectPages(graphql, actions) {
   episodes.forEach((edge) => {
     const id = edge.node.id;
     const slug = getSlug(edge.node.title, { truncate: 200, symbols: true });
-    const path = `/episodes/${slug}/embed`;
+    const path = `/episodes/${slug}/embed/`;
 
     createPage({
       path,
