@@ -18,7 +18,7 @@ const EpisodeTemplate = ({ data }) => {
     truncate: 200,
     symbols: true,
   });
-  const episode = `${data.site.siteMetadata.url}/${slug}/player/`;
+  const episode = `${data.site.siteMetadata.url}/episodes/${slug}/player/`;
   useEffect(() => {
     setActiveEpisode({
       src: activeEpisode.url,

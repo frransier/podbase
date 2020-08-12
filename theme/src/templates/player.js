@@ -10,7 +10,7 @@ const PlayerTemplate = ({ data }) => {
   });
   const src = `${data.site.siteMetadata.url}/episodes/${slug}/embed/`;
   // const src = `http://localhost:8000/episodes/${slug}/embed/`;
-  console.log(src);
+
   return <iframe src={src} />;
 };
 
